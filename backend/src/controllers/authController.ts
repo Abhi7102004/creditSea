@@ -4,22 +4,15 @@ import User, { UserRole, IUser } from "../models/User";
 
 export const register = async (req: Request, res: Response) => {
   try {
-    const { email, password, name, role } = req.body;
+    const { email, password, name } = req.body;
 
-    // Check if user already exists
+    if(!email || !password || !name) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+    
     const existingUser = await User.findOne({ email });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
-    }
-
-    // If trying to register as admin or verifier, validate if request is from admin
-    if (
-      (role === UserRole.ADMIN || role === UserRole.VERIFIER) &&
-      (!req.user || req.user.role !== UserRole.ADMIN)
-    ) {
-      return res.status(403).json({
-        message: "Only admins can create admin or verifier accounts",
-      });
     }
 
     // Create new user
@@ -27,7 +20,7 @@ export const register = async (req: Request, res: Response) => {
       email,
       password,
       name,
-      role: role || UserRole.USER,
+      role: UserRole.USER,
     });
 
     await user.save();

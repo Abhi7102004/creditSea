@@ -29,7 +29,6 @@ const Register = () => {
         email,
         password,
         name,
-        role,
       });
 
       console.log("Signup Success:", response.data);
@@ -121,22 +120,6 @@ const Register = () => {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
-          </div>
-          
-          <div className="mb-6">
-            <label className="block text-gray-700 text-sm font-bold mb-2" htmlFor="role">
-              Role
-            </label>
-            <select
-              className="appearance-none border rounded w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:shadow-outline focus:border-green-800"
-              id="role"
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="user">User</option>
-              <option value="verifier">Verifier</option>
-              <option value="admin">Admin</option>
-            </select>
           </div>
           
           <button
