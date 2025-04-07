@@ -1,2 +1,2 @@
-export const Auth="http://localhost:8000/api/auth";
-export const Loan="http://localhost:8000/api/loan";
+export const Auth="https://creditsea-2.onrender.com/api/auth";
+export const Loan="https://creditsea-2.onrender.com/api/loan";
