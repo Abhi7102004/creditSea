@@ -2,7 +2,6 @@
 import React from "react";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
 import Navbar from "./components/navbar";
-import Home from "./components/home";
 import Login from "./components/login";
 import Register from "./components/register";
 import AdminDashboard from "./dashboard/admin";
@@ -24,39 +23,39 @@ const router = createBrowserRouter([
     element: <Layout />,
     children: [
       {
-        path: "/",
+        path: "",
         element: <Login />,
       },
       {
-        path: "/login",
+        path: "login",
         element: <Login />,
       },
       {
-        path: "/signup",
+        path: "signup",
         element: <Register />,
       },
       {
-        path: "/admin/dashboard",
+        path: "admin/dashboard",
         element: <AdminDashboard />,
       },
       {
-        path: "/user/dashboard",
+        path: "user/dashboard",
         element: <UserDashboard />,
       },
       {
-        path: "/verifier/dashboard",
+        path: "verifier/dashboard",
         element: <VerifierDashboard />,
       },
       {
-        path: "/admin/create-admin",
+        path: "admin/create-admin",
         element: <CreateAdmin />,
       },
       {
-        path: "/admin/create-verifier",
+        path: "admin/create-verifier",
         element: <CreateVerifier/>
       },
       {
-        path:"/apply-loan",
+        path:"apply-loan",
         element:<GetALoan/>
       }
     ],
